@@ -1,34 +1,277 @@
-body {
+/* Reset and global styles */
+* {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  color: white;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.navbar {
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background: #f2f4f8;
+  min-height: 100vh;
+}
+
+/* Static background image setup */
+.page-container {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  padding-top: 60px;
+}
+
+/* Top navigation bar */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1rem 2rem;
   display: flex;
   gap: 1rem;
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.6);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  z-index: 1000;
 }
 
-.navlink {
-  color: white;
+nav a {
   text-decoration: none;
+  color: #333;
   font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
 }
 
-.navlink.active {
-  border-bottom: 2px solid white;
+nav a:hover {
+  background-color: #1e90ff;
+  color: white;
 }
 
-.page {
+nav a.active {
+  background-color: #1e90ff;
+  color: white;
+}
+
+/* Quote Form Styling */
+.quote-form-page {
+  max-width: 600px;
+  margin: 100px auto;
+  background: white;
   padding: 2rem;
-  min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
+
+.quote-form-page h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.service-tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.service-tabs button {
+  flex: 1;
+  padding: 0.75rem;
+  margin: 0 0.25rem;
+  border: none;
+  background-color: #e0e0e0;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 8px;
+}
+
+.service-tabs button.active {
+  background-color: #1e90ff;
+  color: white;
+}
+
+.service-tabs button:hover {
+  background-color: #0077cc;
+  color: white;
+}
+
+.quote-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.quote-form label {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.quote-form input,
+.quote-form textarea {
+  width: 100%;
+  padding: 0.65rem;
+  margin-top: 0.25rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.quote-form textarea {
+  resize: vertical;
+}
+
+.quote-form button[type='submit'] {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.quote-form button[type='submit']:hover {
+  background-color: #0077cc;
+}
+/* Reset and global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background: #f2f4f8;
+  min-height: 100vh;
+}
+
+/* Static background image setup */
+.page-container {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  padding-top: 60px;
+}
+
+/* Top navigation bar */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+nav a:hover {
+  background-color: #1e90ff;
+  color: white;
+}
+
+nav a.active {
+  background-color: #1e90ff;
+  color: white;
+}
+
+/* Quote Form Styling */
+.quote-form-page {
+  max-width: 600px;
+  margin: 100px auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.quote-form-page h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.service-tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.service-tabs button {
+  flex: 1;
+  padding: 0.75rem;
+  margin: 0 0.25rem;
+  border: none;
+  background-color: #e0e0e0;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 8px;
+}
+
+.service-tabs button.active {
+  background-color: #1e90ff;
+  color: white;
+}
+
+.service-tabs button:hover {
+  background-color: #0077cc;
+  color: white;
+}
+
+.quote-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.quote-form label {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.quote-form input,
+.quote-form textarea {
+  width: 100%;
+  padding: 0.65rem;
+  margin-top: 0.25rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.quote-form textarea {
+  resize: vertical;
+}
+
+.quote-form button[type='submit'] {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.quote-form button[type='submit']:hover {
+  background-color: #0077cc;
+}
+
