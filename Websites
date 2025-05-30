@@ -1,0 +1,181 @@
+// index.html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coastal Shine</title>
+    <style>
+      body, html { margin: 0; padding: 0; height: 100%; }
+      #root { height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+// vite.config.js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+})
+
+// package.json
+{
+  "name": "coastalshine-site",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^5.0.0"
+  }
+}
+
+// src/main.jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
+import Home from './pages/Home'
+import QuoteForm from './pages/QuoteForm'
+import Contact from './pages/Contact'
+import Projects from './pages/Projects'
+import './index.css'
+
+const App = () => (
+  <BrowserRouter>
+    <nav className="navbar">
+      <NavLink to="/" className="navlink">Home</NavLink>
+      <NavLink to="/projects" className="navlink">Recent Projects</NavLink>
+      <NavLink to="/quote" className="navlink">Get a Quote</NavLink>
+      <NavLink to="/contact" className="navlink">Contact</NavLink>
+    </nav>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/projects" element={<Projects />} />
+      <Route path="/quote" element={<QuoteForm />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
+  </BrowserRouter>
+)
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
+
+// src/index.css
+body {
+  margin: 0;
+  font-family: sans-serif;
+  color: white;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+.navlink {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+.navlink.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.page {
+  padding: 4rem 2rem 2rem 8rem;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.page h1 {
+  font-size: 2.5rem;
+}
+
+.page p {
+  font-size: 1.2rem;
+  max-width: 700px;
+}
+
+// src/pages/Home.jsx
+import React from 'react'
+
+export default function Home() {
+  return (
+    <div className="page" style={{ backgroundImage: 'url(https://source.unsplash.com/1600x900/?coast,clean)' }}>
+      <h1>Welcome to Coastal Shine</h1>
+      <p>We provide expert cleaning for solar panels, windows, and signage. Keep your investments shining and efficient.</p>
+    </div>
+  )
+}
+
+// src/pages/Projects.jsx
+import React from 'react'
+
+export default function Projects() {
+  return (
+    <div className="page" style={{ backgroundImage: 'url(https://source.unsplash.com/1600x900/?cleaning,exterior)' }}>
+      <h1>Recent Projects</h1>
+      <p>Check out some of the transformations we've done for our happy customers.</p>
+    </div>
+  )
+}
+
+// src/pages/QuoteForm.jsx
+import React from 'react'
+
+export default function QuoteForm() {
+  return (
+    <div className="page" style={{ backgroundImage: 'url(https://source.unsplash.com/1600x900/?solar,roof)' }}>
+      <h1>Request a Quote</h1>
+      <form style={{ backgroundColor: "rgba(0,0,0,0.5)", padding: "1rem", borderRadius: "8px", maxWidth: "400px" }}>
+        <label>Name:<br/><input type="text" name="name" required /></label><br/><br/>
+        <label>Email:<br/><input type="email" name="email" required /></label><br/><br/>
+        <label>Phone:<br/><input type="tel" name="phone" required /></label><br/><br/>
+        <label>Message:<br/><textarea name="message" rows="4" required /></label><br/><br/>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  )
+}
+
+// src/pages/Contact.jsx
+import React from 'react'
+
+export default function Contact() {
+  return (
+    <div className="page" style={{ backgroundImage: 'url(https://source.unsplash.com/1600x900/?contact,sky)' }}>
+      <h1>Contact Us</h1>
+      <p>You can reach Coastal Shine by filling out the form or using the contact details below.</p>
+      <p><strong>Email:</strong> info@coastalshine.co.za</p>
+      <p><strong>Phone:</strong> +27 12 345 6789</p>
+    </div>
+  )
+}
