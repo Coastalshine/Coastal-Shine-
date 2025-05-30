@@ -1,17 +1,93 @@
+/* Basic page layout */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+}
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coastal Shine</title>
-    <style>
-      body, html { margin: 0; padding: 0; height: 100%; }
-      #root { height: 100%; }
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+.quote-form-page {
+  max-width: 600px;
+  margin: 100px auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.quote-form-page h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+/* Tabs */
+.service-tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.service-tabs button {
+  flex: 1;
+  padding: 0.75rem;
+  margin: 0 0.25rem;
+  border: none;
+  background-color: #e0e0e0;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 8px;
+}
+
+.service-tabs button.active {
+  background-color: #1e90ff;
+  color: white;
+}
+
+.service-tabs button:hover {
+  background-color: #0077cc;
+  color: white;
+}
+
+/* Form */
+.quote-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.quote-form label {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.quote-form input,
+.quote-form textarea {
+  width: 100%;
+  padding: 0.65rem;
+  margin-top: 0.25rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.quote-form textarea {
+  resize: vertical;
+}
+
+/* Submit button */
+.quote-form button[type='submit'] {
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease;
+}
+
+.quote-form button[type='submit']:hover {
+  background-color: #0077cc;
+}
