@@ -1,43 +1,66 @@
-import React, { useState } from 'react'
-import '../index.css'
+// src/pages/QuoteForm.jsx
+import React, { useState } from 'react';
 
 const QuoteForm = () => {
-  document.body.style.backgroundImage = `url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1950&q=80')`
-
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    service: '',
-    message: ''
-  })
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    alert("Quote submitted! We'll get back to you shortly.")
-    setFormData({ name: '', email: '', service: '', message: '' })
-  }
+  const [service, setService] = useState('solar');
 
   return (
-    <div className="page">
-      <h1>Get a Quote</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder="Your Name" required value={formData.name} onChange={handleChange} /><br /><br />
-        <input type="email" name="email" placeholder="Your Email" required value={formData.email} onChange={handleChange} /><br /><br />
-        <select name="service" required value={formData.service} onChange={handleChange}>
-          <option value="">Select Service</option>
-          <option value="solar">Solar Panel Cleaning</option>
-          <option value="windows">Window Cleaning</option>
-          <option value="billboard">Billboard Cleaning</option>
-        </select><br /><br />
-        <textarea name="message" placeholder="Additional Details" value={formData.message} onChange={handleChange}></textarea><br /><br />
-        <button type="submit">Submit</button>
+    <div className="quote-form-page">
+      <h2>Request a Quote</h2>
+
+      {/* Service Tabs */}
+      <div className="service-tabs">
+        <button onClick={() => setService('solar')} className={service === 'solar' ? 'active' : ''}>Solar Panels</button>
+        <button onClick={() => setService('windows')} className={service === 'windows' ? 'active' : ''}>Windows</button>
+        <button onClick={() => setService('billboard')} className={service === 'billboard' ? 'active' : ''}>Billboard</button>
+      </div>
+
+      <form className="quote-form">
+        <label>
+          Full Name:
+          <input type="text" required />
+        </label>
+
+        <label>
+          Email or Phone:
+          <input type="text" required />
+        </label>
+
+        <label>
+          Address / Suburb:
+          <input type="text" />
+        </label>
+
+        {service === 'solar' && (
+          <label>
+            Number of Solar Panels (R40 each):
+            <input type="number" min="0" />
+          </label>
+        )}
+
+        {service === 'windows' && (
+          <label>
+            Estimated Time Needed (in hours, R600/hr):
+            <input type="number" min="1" />
+          </label>
+        )}
+
+        {service === 'billboard' && (
+          <label>
+            Billboard Size or Quantity:
+            <input type="text" />
+          </label>
+        )}
+
+        <label>
+          Additional Notes:
+          <textarea rows="3" />
+        </label>
+
+        <button type="submit">Submit Quote Request</button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default QuoteForm
+export default QuoteForm;
